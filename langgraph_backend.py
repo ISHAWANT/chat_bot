@@ -1,4 +1,4 @@
-from langchain_core.messages import BaseMessage
+from langchain_core.messages import BaseMessage,HumanMessage
 from langchain_groq import ChatGroq 
 from langgraph.checkpoint.memory import InMemorySaver 
 from langgraph.graph.message import add_messages 
@@ -41,3 +41,15 @@ chatbot = graph.compile(checkpointer=check_pointer)
 
 #     if message_chunk.content:
 #         print(message_chunk.content,end=' ',flush=True)
+
+
+# CONFIG = {'configurable':{'thread_id': 'thread-1'}}
+
+
+# response = chatbot.invoke(
+#                 {'messages':[HumanMessage(content='Hi')]},
+#                 config = CONFIG,
+#                 stream_mode='messages'
+#             )
+
+# chatbot.get_state(config=CONFIG).values['messages'] 
